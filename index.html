@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- ================================================== -->
+    <!-- CONFIGURACIÓN GENERAL DEL DOCUMENTO -->
+    <!-- ================================================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TÍTULO DEL DOCUMENTO -->
+    <title>Sistema de Gestión de Inventario y Movimientos</title>
+
+    <!-- ================================================== -->
+    <!-- SECCIÓN: FAVICON DEL PROYECTO -->
+    <!-- ================================================== -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+
+    <!-- HOJA DE ESTILOS PRINCIPAL -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body id="inicio">
+    <!-- ================================================== -->
+    <!-- SECCIÓN: ENCABEZADO DEL SISTEMA -->
+    <!-- ================================================== -->
+    <header class="encabezado">
+      <!-- Título principal del sistema -->
+      <h1 class="encabezado__titulo">
+        Sistema de Gestión de Inventario y Movimientos
+      </h1>
+
+      <!-- Texto breve descriptivo -->
+      <p class="encabezado__descripcion">
+        <em>Control de insumos</em>, movimientos y preparaciones en un entorno
+        de producción gastronómica digital.
+      </p>
+    </header>
+
+    <!-- ================================================== -->
+    <!-- SECCIÓN: NAVEGACIÓN PRINCIPAL -->
+    <!-- ================================================== -->
+    <nav class="navegacion" aria-label="Navegación principal">
+      <!-- Lista de enlaces internos del sistema -->
+      <ul class="navegacion__lista">
+        <li class="navegacion__item">
+          <a class="navegacion__enlace" href="#panel-principal"
+            >Panel principal</a
+          >
+        </li>
+        <li class="navegacion__item">
+          <a class="navegacion__enlace" href="#productos">Productos</a>
+        </li>
+        <li class="navegacion__item">
+          <a class="navegacion__enlace" href="#movimientos">Movimientos</a>
+        </li>
+        <li class="navegacion__item">
+          <a class="navegacion__enlace" href="#inventario-actual"
+            >Inventario actual</a
+          >
+        </li>
+        <li class="navegacion__item">
+          <a class="navegacion__enlace" href="#recetas-preparaciones"
+            >Recetas o preparaciones</a
+          >
+        </li>
+      </ul>
+
+      <!-- Botón minimalista: cambio de tema -->
+      <button
+        class="navegacion__boton-tema"
+        id="boton-tema"
+        type="button"
+        aria-label="Cambiar modo de color"
+        title="Cambiar modo de color"
+      >
+        🌙
+      </button>
+    </nav>
+
+    <!-- ================================================== -->
+    <!-- SECCIÓN: CONTENIDO PRINCIPAL -->
+    <!-- ================================================== -->
+    <main class="contenido-principal">
+      <!-- =============================================== -->
+      <!-- SUBSECCIÓN: PANEL PRINCIPAL -->
+      <!-- =============================================== -->
+      <section class="contenido-principal__seccion" id="panel-principal">
+        <!-- Título de la sección -->
+        <h2 class="contenido-principal__titulo-seccion">Panel principal</h2>
+
+        <!-- Texto introductorio -->
+        <p class="contenido-principal__descripcion-seccion">
+          Vista general del sistema de gestión de inventario y movimientos.
+        </p>
+      </section>
+
+      <!-- =============================================== -->
+      <!-- SUBSECCIÓN: PRODUCTOS -->
+      <!-- =============================================== -->
+      <section class="contenido-principal__seccion" id="productos">
+        <!-- Título de la sección -->
+        <h2 class="contenido-principal__titulo-seccion">Productos</h2>
+
+        <!-- Texto introductorio -->
+        <p class="contenido-principal__descripcion-seccion">
+          Registro y consulta de productos o insumos del inventario.
+        </p>
+
+        <!-- Bloque: formulario de productos -->
+        <div class="productos__formulario-contenedor">
+          <!-- Subtítulo del bloque -->
+          <h3 class="productos__subtitulo">Formulario de registro</h3>
+
+          <!-- Formulario de productos -->
+          <form class="productos__formulario">
+            <!-- Campo: nombre del producto -->
+            <div class="productos__campo">
+              <label class="productos__etiqueta" for="nombre-producto">
+                Nombre del producto
+              </label>
+              <input
+                class="productos__entrada"
+                type="text"
+                id="nombre-producto"
+                name="nombreProducto"
+                placeholder="Ej. Harina de trigo"
+                required
+              />
+            </div>
+
+            <!-- Campo: categoría -->
+            <div class="productos__campo">
+              <label class="productos__etiqueta" for="categoria-producto">
+                Categoría
+              </label>
+              <input
+                class="productos__entrada"
+                type="text"
+                id="categoria-producto"
+                name="categoriaProducto"
+                placeholder="Ej. Ingrediente"
+                required
+              />
+            </div>
+
+            <!-- Campo: unidad de medida -->
+            <div class="productos__campo">
+              <label class="productos__etiqueta" for="unidad-medida">
+                Unidad de medida
+              </label>
+              <input
+                class="productos__entrada"
+                type="text"
+                id="unidad-medida"
+                name="unidadMedida"
+                placeholder="Ej. kg, g, l, ml"
+                required
+              />
+            </div>
+
+            <!-- Campo: stock inicial -->
+            <div class="productos__campo">
+              <label class="productos__etiqueta" for="stock-inicial">
+                Stock inicial
+              </label>
+              <input
+                class="productos__entrada"
+                type="number"
+                id="stock-inicial"
+                name="stockInicial"
+                min="0"
+                placeholder="0"
+                required
+              />
+            </div>
+
+            <!-- Campo: stock mínimo -->
+            <div class="productos__campo">
+              <label class="productos__etiqueta" for="stock-minimo">
+                Stock mínimo
+              </label>
+              <input
+                class="productos__entrada"
+                type="number"
+                id="stock-minimo"
+                name="stockMinimo"
+                min="0"
+                placeholder="0"
+                required
+              />
+            </div>
+
+            <!-- Acción principal del formulario -->
+            <div class="productos__acciones">
+              <button class="productos__boton" type="submit">
+                Guardar producto
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Bloque: tabla de productos -->
+        <div class="productos__tabla-contenedor">
+          <!-- Subtítulo del bloque -->
+          <h3 class="productos__subtitulo">Listado de productos</h3>
+
+          <!-- Tabla de productos registrados -->
+          <table class="productos__tabla">
+            <thead class="productos__tabla-encabezado">
+              <tr class="productos__tabla-fila">
+                <th
+                  class="productos__tabla-celda productos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Producto
+                </th>
+                <th
+                  class="productos__tabla-celda productos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Categoría
+                </th>
+                <th
+                  class="productos__tabla-celda productos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Unidad
+                </th>
+                <th
+                  class="productos__tabla-celda productos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Stock actual
+                </th>
+                <th
+                  class="productos__tabla-celda productos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Stock mínimo
+                </th>
+              </tr>
+            </thead>
+            <tbody class="productos__tabla-cuerpo"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =============================================== -->
+      <!-- SUBSECCIÓN: MOVIMIENTOS -->
+      <!-- =============================================== -->
+      <section class="contenido-principal__seccion" id="movimientos">
+        <!-- Título de la sección -->
+        <h2 class="contenido-principal__titulo-seccion">Movimientos</h2>
+
+        <!-- Texto introductorio -->
+        <p class="contenido-principal__descripcion-seccion">
+          Registro de entradas y salidas de productos del inventario.
+        </p>
+
+        <!-- Bloque: formulario de movimientos -->
+        <div class="movimientos__formulario-contenedor">
+          <!-- Subtítulo del bloque -->
+          <h3 class="movimientos__subtitulo">Formulario de movimientos</h3>
+
+          <!-- Formulario de movimientos -->
+          <form class="movimientos__formulario">
+            <!-- Campo: tipo de movimiento -->
+            <div class="movimientos__campo">
+              <label class="movimientos__etiqueta" for="tipo-movimiento">
+                Tipo de movimiento
+              </label>
+              <select
+                class="movimientos__entrada"
+                id="tipo-movimiento"
+                name="tipoMovimiento"
+                required
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="entrada">Entrada</option>
+                <option value="salida">Salida</option>
+              </select>
+            </div>
+
+            <!-- Campo: producto -->
+            <div class="movimientos__campo">
+              <label class="movimientos__etiqueta" for="producto-movimiento">
+                Producto
+              </label>
+              <select
+                class="movimientos__entrada"
+                id="producto-movimiento"
+                name="productoMovimiento"
+                required
+              >
+                <option value="">Selecciona un producto</option>
+              </select>
+            </div>
+
+            <!-- Campo: cantidad -->
+            <div class="movimientos__campo">
+              <label class="movimientos__etiqueta" for="cantidad-movimiento">
+                Cantidad
+              </label>
+              <input
+                class="movimientos__entrada"
+                type="number"
+                id="cantidad-movimiento"
+                name="cantidadMovimiento"
+                min="1"
+                placeholder="Ej. 2"
+                required
+              />
+            </div>
+
+            <!-- Campo: fecha -->
+            <div class="movimientos__campo">
+              <label class="movimientos__etiqueta" for="fecha-movimiento">
+                Fecha
+              </label>
+              <input
+                class="movimientos__entrada"
+                type="date"
+                id="fecha-movimiento"
+                name="fechaMovimiento"
+                required
+              />
+            </div>
+
+            <!-- Campo: motivo -->
+            <div class="movimientos__campo">
+              <label class="movimientos__etiqueta" for="motivo-movimiento">
+                Motivo
+              </label>
+              <input
+                class="movimientos__entrada"
+                type="text"
+                id="motivo-movimiento"
+                name="motivoMovimiento"
+                placeholder="Ej. Compra o consumo"
+                required
+              />
+            </div>
+
+            <!-- Acción principal del formulario -->
+            <div class="movimientos__acciones">
+              <button class="movimientos__boton" type="submit">
+                Guardar movimiento
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Bloque: tabla de movimientos -->
+        <div class="movimientos__tabla-contenedor">
+          <!-- Subtítulo del bloque -->
+          <h3 class="movimientos__subtitulo">Historial de movimientos</h3>
+
+          <!-- Tabla de movimientos registrados -->
+          <table class="movimientos__tabla">
+            <thead class="movimientos__tabla-encabezado">
+              <tr class="movimientos__tabla-fila">
+                <th
+                  class="movimientos__tabla-celda movimientos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Tipo
+                </th>
+                <th
+                  class="movimientos__tabla-celda movimientos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Producto
+                </th>
+                <th
+                  class="movimientos__tabla-celda movimientos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Cantidad
+                </th>
+                <th
+                  class="movimientos__tabla-celda movimientos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Fecha
+                </th>
+                <th
+                  class="movimientos__tabla-celda movimientos__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Motivo
+                </th>
+              </tr>
+            </thead>
+            <tbody class="movimientos__tabla-cuerpo"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =============================================== -->
+      <!-- SUBSECCIÓN: INVENTARIO ACTUAL -->
+      <!-- =============================================== -->
+      <section class="contenido-principal__seccion" id="inventario-actual">
+        <!-- Título de la sección -->
+        <h2 class="contenido-principal__titulo-seccion">Inventario actual</h2>
+
+        <!-- Texto introductorio -->
+        <p class="contenido-principal__descripcion-seccion">
+          Consulta de existencias disponibles y estado general del inventario.
+        </p>
+
+        <!-- Bloque: tabla de inventario -->
+        <div class="inventario__tabla-contenedor">
+          <!-- Subtítulo del bloque -->
+          <h3 class="inventario__subtitulo">Listado de existencias</h3>
+
+          <!-- Tabla de inventario actual -->
+          <table class="inventario__tabla">
+            <thead class="inventario__tabla-encabezado">
+              <tr class="inventario__tabla-fila">
+                <th
+                  class="inventario__tabla-celda inventario__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Producto
+                </th>
+                <th
+                  class="inventario__tabla-celda inventario__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Categoría
+                </th>
+                <th
+                  class="inventario__tabla-celda inventario__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Unidad
+                </th>
+                <th
+                  class="inventario__tabla-celda inventario__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Stock actual
+                </th>
+                <th
+                  class="inventario__tabla-celda inventario__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Stock mínimo
+                </th>
+                <th
+                  class="inventario__tabla-celda inventario__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Estado
+                </th>
+              </tr>
+            </thead>
+            <tbody class="inventario__tabla-cuerpo"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =============================================== -->
+      <!-- SUBSECCIÓN: RECETAS O PREPARACIONES -->
+      <!-- =============================================== -->
+      <section class="contenido-principal__seccion" id="recetas-preparaciones">
+        <!-- Título de la sección -->
+        <h2 class="contenido-principal__titulo-seccion">
+          Recetas o preparaciones
+        </h2>
+
+        <!-- Texto introductorio -->
+        <p class="contenido-principal__descripcion-seccion">
+          Registro de preparaciones y relación con los productos utilizados.
+        </p>
+
+        <!-- Bloque: formulario de recetas -->
+        <div class="recetas__formulario-contenedor">
+          <!-- Subtítulo del bloque -->
+          <h3 class="recetas__subtitulo">Formulario de recetas</h3>
+
+          <!-- Formulario de recetas -->
+          <form class="recetas__formulario">
+            <!-- Campo: nombre de la receta -->
+            <div class="recetas__campo">
+              <label class="recetas__etiqueta" for="nombre-receta">
+                Nombre de la receta
+              </label>
+              <input
+                class="recetas__entrada"
+                type="text"
+                id="nombre-receta"
+                name="nombreReceta"
+                placeholder="Ej. Pastel de vainilla"
+                required
+              />
+            </div>
+
+            <!-- Campo: descripción -->
+            <div class="recetas__campo">
+              <label class="recetas__etiqueta" for="descripcion-receta">
+                Descripción
+              </label>
+              <textarea
+                class="recetas__entrada"
+                id="descripcion-receta"
+                name="descripcionReceta"
+                placeholder="Describe brevemente la preparación"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Campo: fecha de preparación -->
+            <div class="recetas__campo">
+              <label class="recetas__etiqueta" for="fecha-preparacion">
+                Fecha de preparación
+              </label>
+              <input
+                class="recetas__entrada"
+                type="date"
+                id="fecha-preparacion"
+                name="fechaPreparacion"
+                required
+              />
+            </div>
+
+            <!-- Campo: productos usados -->
+            <div class="recetas__campo">
+              <label class="recetas__etiqueta" for="productos-usados">
+                Productos usados
+              </label>
+              <input
+                class="recetas__entrada"
+                type="text"
+                id="productos-usados"
+                name="productosUsados"
+                placeholder="Ej. Harina, azúcar, huevo"
+                required
+              />
+            </div>
+
+            <!-- Campo: enlace de referencia -->
+            <div class="recetas__campo">
+              <label class="recetas__etiqueta" for="enlace-referencia">
+                Enlace de referencia
+              </label>
+              <input
+                class="recetas__entrada"
+                type="url"
+                id="enlace-referencia"
+                name="enlaceReferencia"
+                placeholder="https://..."
+                required
+              />
+            </div>
+
+            <!-- Acción principal del formulario -->
+            <div class="recetas__acciones">
+              <button class="recetas__boton" type="submit">
+                Guardar receta
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Bloque: tabla de recetas -->
+        <div class="recetas__tabla-contenedor">
+          <!-- Subtítulo del bloque -->
+          <h3 class="recetas__subtitulo">Listado de recetas</h3>
+
+          <!-- Tabla de recetas registradas -->
+          <table class="recetas__tabla">
+            <thead class="recetas__tabla-encabezado">
+              <tr class="recetas__tabla-fila">
+                <th
+                  class="recetas__tabla-celda recetas__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Receta
+                </th>
+                <th
+                  class="recetas__tabla-celda recetas__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Descripción
+                </th>
+                <th
+                  class="recetas__tabla-celda recetas__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Fecha
+                </th>
+                <th
+                  class="recetas__tabla-celda recetas__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Productos usados
+                </th>
+                <th
+                  class="recetas__tabla-celda recetas__tabla-celda--encabezado"
+                  scope="col"
+                >
+                  Enlace
+                </th>
+              </tr>
+            </thead>
+            <tbody class="recetas__tabla-cuerpo"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================================================== -->
+    <!-- SECCIÓN: PIE DE PÁGINA -->
+    <!-- ================================================== -->
+    <footer class="pie-pagina">
+      <!-- Texto de autoría -->
+      <p class="pie-pagina__texto">
+        &copy; 2026 Carlos Dev. Todos los derechos reservados.
+      </p>
+    </footer>
+
+    <!-- ================================================== -->
+    <!-- SECCIÓN: NOTIFICACIÓN VISUAL -->
+    <!-- ================================================== -->
+    <div class="notificacion" id="notificacion" aria-live="polite"></div>
+
+    <!-- ================================================== -->
+    <!-- SECCIÓN: BOTÓN FLOTANTE VOLVER AL INICIO -->
+    <!-- ================================================== -->
+    <a class="boton-flotante" href="#inicio" aria-label="Volver al inicio">
+      ↑
+    </a>
+
+    <!-- ================================================== -->
+    <!-- ARCHIVO JAVASCRIPT PRINCIPAL DEL PROYECTO -->
+    <!-- ================================================== -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
